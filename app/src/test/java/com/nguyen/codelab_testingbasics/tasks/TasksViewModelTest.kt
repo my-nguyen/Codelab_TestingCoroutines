@@ -5,8 +5,10 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.nguyen.codelab_testingbasics.getOrAwaitValue
 import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.not
 import org.hamcrest.Matchers.nullValue
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,14 +21,26 @@ class TasksViewModelTest {
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
+    private lateinit var tasksViewModel: TasksViewModel
+
+    @Before
+    fun setupViewModel() {
+        tasksViewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
+    }
+
     @Test
     fun addNewTask_setsNewTaskEvent() {
-        val tasksViewModel = TasksViewModel(ApplicationProvider.getApplicationContext())
-
         tasksViewModel.addNewTask()
 
         val value = tasksViewModel.newTaskEvent.getOrAwaitValue()
 
         assertThat(value.getContentIfNotHandled(), not(nullValue()))
+    }
+
+    @Test
+    fun setFilterAllTasks_tasksAddViewVisible() {
+        tasksViewModel.setFiltering(TasksFilterType.ALL_TASKS)
+
+        assertThat(tasksViewModel.tasksAddViewVisible.getOrAwaitValue(), `is`(true))
     }
 }

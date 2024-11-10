@@ -59,4 +59,5 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.timber)
     implementation(libs.coroutines)
+    testImplementation(libs.hamcrest)
 }

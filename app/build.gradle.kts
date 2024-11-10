@@ -57,8 +57,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.bundles.room)
-    kapt(libs.room.compiler)
+    implementation(libs.bundles.androidx.room)
+    kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.timber)
     implementation(libs.coroutines)
@@ -66,4 +66,5 @@ dependencies {
     testImplementation(libs.test)
     testImplementation(libs.test.ext)
     testImplementation(libs.robolectric)
+    testImplementation(libs.core.testing)
 }

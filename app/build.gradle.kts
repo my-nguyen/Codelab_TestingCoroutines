@@ -39,6 +39,9 @@ android {
         dataBinding = true
         buildConfig = true
     }
+    testOptions.unitTests {
+        isIncludeAndroidResources = true
+    }
 }
 
 dependencies {
@@ -60,4 +63,7 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.coroutines)
     testImplementation(libs.hamcrest)
+    testImplementation(libs.test)
+    testImplementation(libs.test.ext)
+    testImplementation(libs.robolectric)
 }

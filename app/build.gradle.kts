@@ -61,10 +61,12 @@ dependencies {
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.timber)
-    implementation(libs.coroutines)
+    implementation(libs.coroutines.android)
     testImplementation(libs.hamcrest)
     testImplementation(libs.test)
     testImplementation(libs.test.ext)
     testImplementation(libs.robolectric)
     testImplementation(libs.core.testing)
+
+    testImplementation(libs.coroutines.test)
 }

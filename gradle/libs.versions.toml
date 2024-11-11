@@ -22,6 +22,7 @@ testExt = "1.2.1"
 test = "1.6.1"
 robolectric = "4.5.1"
 core = "2.2.0"
+coroutinesTest = "1.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,12 +41,13 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout"}
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 hamcrest = { group = "org.hamcrest", name = "hamcrest-all", version.ref = "hamcrest" }
 test-ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "testExt" }
 test = { group = "androidx.test", name = "core-ktx", version.ref = "test" }
-robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric"}
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "core" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
 
 [bundles]
 androidx-room = ["androidx-room-ktx", "androidx-room-paging", "androidx-room-runtime"]

@@ -23,7 +23,7 @@
 
         <variable
             name="viewmodel"
-            type="com.nguyen.codelab_testdoubles.addedittask.AddEditTaskViewModel" />
+            type="com.nguyen.codelab_testingcoroutines.addedittask.AddEditTaskViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.nguyen.codelab_testdoubles.ScrollChildSwipeRefreshLayout
+        <com.nguyen.codelab_testingcoroutines.ScrollChildSwipeRefreshLayout
             android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -76,7 +76,7 @@
 
                 </LinearLayout>
             </ScrollView>
-        </com.nguyen.codelab_testdoubles.ScrollChildSwipeRefreshLayout>>
+        </com.nguyen.codelab_testingcoroutines.ScrollChildSwipeRefreshLayout>>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/save_task_fab"

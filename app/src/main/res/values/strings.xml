@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Codelab_TestDoubles</string>
+    <string name="app_name">Codelab_TestingCoroutines</string>
     <string name="add_task">New Task</string>
     <string name="edit_task">Edit Task</string>
     <string name="task_marked_complete">Task marked complete</string>

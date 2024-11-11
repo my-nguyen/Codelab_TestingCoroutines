@@ -1,9 +1,13 @@
 package com.nguyen.codelab_testingcoroutines.tasks
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.nguyen.codelab_testingcoroutines.Event
+import com.nguyen.codelab_testingcoroutines.MainCoroutineRule
+import com.nguyen.codelab_testingcoroutines.R
 import com.nguyen.codelab_testingcoroutines.data.Task
 import com.nguyen.codelab_testingcoroutines.data.source.FakeTestRepository
 import com.nguyen.codelab_testingcoroutines.getOrAwaitValue
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.not
@@ -20,6 +24,10 @@ class TasksViewModelTest {
 
     private lateinit var tasksViewModel: TasksViewModel
     private lateinit var tasksRepository: FakeTestRepository
+
+    @ExperimentalCoroutinesApi
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
     @Before
     fun setupViewModel() {
@@ -47,5 +55,19 @@ class TasksViewModelTest {
         tasksViewModel.setFiltering(TasksFilterType.ALL_TASKS)
 
         assertThat(tasksViewModel.tasksAddViewVisible.getOrAwaitValue(), `is`(true))
+    }
+
+    @Test
+    fun completeTask_dataAndSnackbarUpdated() {
+        val task = Task("Title", "Description")
+        tasksRepository.addTasks(task)
+
+        tasksViewModel.completeTask(task, true)
+
+        assertThat(tasksRepository.tasksServiceData[task.id]?.isCompleted, `is`(true))
+
+        // Assert that the snackbar has been updated with the correct text.
+        val snackbarText: Event<Int> =  tasksViewModel.snackbarText.getOrAwaitValue()
+        assertThat(snackbarText.getContentIfNotHandled(), `is`(R.string.task_marked_complete))
     }
 }

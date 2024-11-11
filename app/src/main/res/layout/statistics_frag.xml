@@ -22,10 +22,10 @@
 
         <variable
             name="viewmodel"
-            type="com.nguyen.codelab_testingbasics.statistics.StatisticsViewModel" />
+            type="com.nguyen.codelab_testdoubles.statistics.StatisticsViewModel" />
     </data>
 
-    <com.nguyen.codelab_testingbasics.ScrollChildSwipeRefreshLayout
+    <com.nguyen.codelab_testdoubles.ScrollChildSwipeRefreshLayout
         android:id="@+id/refresh_layout"
         app:refreshing="@{viewmodel.dataLoading}"
         app:onRefreshListener="@{viewmodel::refresh}"
@@ -78,5 +78,5 @@
             </LinearLayout>
         </LinearLayout>
 
-    </com.nguyen.codelab_testingbasics.ScrollChildSwipeRefreshLayout>
+    </com.nguyen.codelab_testdoubles.ScrollChildSwipeRefreshLayout>
 </layout>

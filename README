@@ -1,11 +1,3 @@
-Advanced Android in Kotlin 05.1:Testing Basics
+Advanced Android in Kotlin 05.2:Introduction to Test Doubles and Dependency Injection
 
-https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics?hl=en#0
-
-In branch b5: "Task: Writing Assertions for LiveData", the test won't pass due to Robolectric error
-in file test/resources/robolectric.properties, if I set
-sdk=31 => "API level 31 is not available"
-sdk=30 => "java.lang.NoClassDefFoundError: android/app/Instrumentation"
-sdk=29 => "java.lang.NoClassDefFoundError: android/util/TypedValue"
-
-since I'm next to the end of the Codelab, I'll proceed to that last step.
+https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-test-doubles#0

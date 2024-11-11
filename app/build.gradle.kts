@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.nguyen.codelab_testingbasics"
+    namespace = "com.nguyen.codelab_testdoubles"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.nguyen.codelab_testingbasics"
+        applicationId = "com.nguyen.codelab_testdoubles"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

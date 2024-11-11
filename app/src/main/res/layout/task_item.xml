@@ -22,11 +22,11 @@
 
         <variable
             name="task"
-            type="com.nguyen.codelab_testingbasics.data.Task" />
+            type="com.nguyen.codelab_testdoubles.data.Task" />
 
         <variable
             name="viewmodel"
-            type="com.nguyen.codelab_testingbasics.tasks.TasksViewModel" />
+            type="com.nguyen.codelab_testdoubles.tasks.TasksViewModel" />
     </data>
 
     <LinearLayout

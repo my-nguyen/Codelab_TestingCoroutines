@@ -63,10 +63,14 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.coroutines.android)
     testImplementation(libs.hamcrest)
-    testImplementation(libs.test)
-    testImplementation(libs.test.ext)
+    testImplementation(libs.core.ktx)
+    testImplementation(libs.junit.ktx)
     testImplementation(libs.robolectric)
     testImplementation(libs.core.testing)
 
     testImplementation(libs.coroutines.test)
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.coroutines.test)
+    implementation(libs.fragment.testing)
+    implementation(libs.core)
 }

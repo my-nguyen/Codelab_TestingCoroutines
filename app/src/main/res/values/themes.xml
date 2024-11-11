@@ -12,7 +12,7 @@
         <item name="actionOverflowButtonStyle">@style/actionOverflowButtonStyle</item>
     </style>
 
-    <style name="Theme.Codelab_TestingBasics" parent="Base.Theme.Codelab_TestDoubles" />
+    <style name="Theme.Codelab_TestDoubles" parent="Base.Theme.Codelab_TestDoubles" />
     <style name="AppTheme.OverlapSystemBar" parent="Base.Theme.Codelab_TestDoubles" />
 
     <!-- This style defines the tint color of the overflow menu button -->

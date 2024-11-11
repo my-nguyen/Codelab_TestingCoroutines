@@ -1,8 +1,6 @@
 package com.nguyen.codelab_testdoubles.taskdetail
 
-import android.app.Application
 import androidx.annotation.StringRes
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,9 +12,7 @@ import com.nguyen.codelab_testdoubles.Event
 import com.nguyen.codelab_testdoubles.R
 import com.nguyen.codelab_testdoubles.data.Result
 import com.nguyen.codelab_testdoubles.data.Task
-import com.nguyen.codelab_testdoubles.data.source.DefaultTasksRepository
 import com.nguyen.codelab_testdoubles.data.source.TasksRepository
-import com.nguyen.codelab_testdoubles.tasks.TasksViewModel
 import kotlinx.coroutines.launch
 
 /**

@@ -1,13 +1,8 @@
 package com.nguyen.codelab_testdoubles.data.source
 
-import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.room.Room
 import com.nguyen.codelab_testdoubles.data.Result
 import com.nguyen.codelab_testdoubles.data.Task
-import com.nguyen.codelab_testdoubles.data.source.local.TasksLocalDataSource
-import com.nguyen.codelab_testdoubles.data.source.local.ToDoDatabase
-import com.nguyen.codelab_testdoubles.data.source.remote.TasksRemoteDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
@@ -21,20 +16,6 @@ class DefaultTasksRepository(
     private val tasksRemoteDataSource: TasksDataSource,
     private val tasksLocalDataSource: TasksDataSource,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : TasksRepository {
-
-    companion object {
-        @Volatile
-        private var INSTANCE: DefaultTasksRepository? = null
-
-        fun getRepository(app: Application): DefaultTasksRepository {
-            return INSTANCE ?: synchronized(this) {
-                val database = Room.databaseBuilder(app, ToDoDatabase::class.java, "Tasks.db").build()
-                DefaultTasksRepository(TasksRemoteDataSource, TasksLocalDataSource(database.taskDao())).also {
-                    INSTANCE = it
-                }
-            }
-        }
-    }
 
     override suspend fun getTasks(forceUpdate: Boolean): Result<List<Task>> {
         if (forceUpdate) {

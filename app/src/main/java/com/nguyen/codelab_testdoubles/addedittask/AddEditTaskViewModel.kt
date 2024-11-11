@@ -7,19 +7,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.nguyen.codelab_testdoubles.Event
 import com.nguyen.codelab_testdoubles.R
+import com.nguyen.codelab_testdoubles.TodoApplication
 import com.nguyen.codelab_testdoubles.data.Result
 import com.nguyen.codelab_testdoubles.data.Task
-import com.nguyen.codelab_testdoubles.data.source.DefaultTasksRepository
 import kotlinx.coroutines.launch
 
 /**
  * ViewModel for the Add/Edit screen.
  */
 class AddEditTaskViewModel(application: Application) : AndroidViewModel(application) {
-
-    // Note, for testing and architecture purposes, it's bad practice to construct the repository
-    // here. We'll show you how to fix this during the codelab
-    private val tasksRepository = DefaultTasksRepository.getRepository(application)
+    private val tasksRepository = (application as TodoApplication).taskRepository
 
     // Two-way databinding, exposing MutableLiveData
     val title = MutableLiveData<String>()

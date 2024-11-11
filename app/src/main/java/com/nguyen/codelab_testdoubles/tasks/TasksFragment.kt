@@ -15,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.nguyen.codelab_testdoubles.EventObserver
 import com.nguyen.codelab_testdoubles.R
+import com.nguyen.codelab_testdoubles.data.source.DefaultTasksRepository
 import com.nguyen.codelab_testdoubles.databinding.TasksFragBinding
 import com.nguyen.codelab_testdoubles.util.setupRefreshLayout
 import com.nguyen.codelab_testdoubles.util.setupSnackbar
@@ -25,7 +26,9 @@ import timber.log.Timber
  */
 class TasksFragment : Fragment() {
 
-    private val viewModel by viewModels<TasksViewModel>()
+    private val viewModel by viewModels<TasksViewModel> {
+        TasksViewModelFactory(DefaultTasksRepository.getRepository(requireActivity().application))
+    }
 
     private val args: TasksFragmentArgs by navArgs()
 

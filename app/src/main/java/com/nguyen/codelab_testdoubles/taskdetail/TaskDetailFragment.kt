@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.nguyen.codelab_testdoubles.EventObserver
 import com.nguyen.codelab_testdoubles.R
+import com.nguyen.codelab_testdoubles.data.source.DefaultTasksRepository
 import com.nguyen.codelab_testdoubles.databinding.TaskdetailFragBinding
 import com.nguyen.codelab_testdoubles.tasks.DELETE_RESULT_OK
 import com.nguyen.codelab_testdoubles.util.setupRefreshLayout
@@ -27,7 +28,9 @@ class TaskDetailFragment : Fragment() {
 
     private val args: TaskDetailFragmentArgs by navArgs()
 
-    private val viewModel by viewModels<TaskDetailViewModel>()
+    private val viewModel by viewModels<TaskDetailViewModel> {
+        TaskDetailViewModelFactory(DefaultTasksRepository.getRepository(requireActivity().application))
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupFab()

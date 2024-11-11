@@ -2,23 +2,27 @@ package com.nguyen.codelab_testdoubles.taskdetail
 
 import android.app.Application
 import androidx.annotation.StringRes
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.map
+import androidx.lifecycle.switchMap
+import androidx.lifecycle.viewModelScope
 import com.nguyen.codelab_testdoubles.Event
 import com.nguyen.codelab_testdoubles.R
 import com.nguyen.codelab_testdoubles.data.Result
 import com.nguyen.codelab_testdoubles.data.Task
 import com.nguyen.codelab_testdoubles.data.source.DefaultTasksRepository
+import com.nguyen.codelab_testdoubles.data.source.TasksRepository
+import com.nguyen.codelab_testdoubles.tasks.TasksViewModel
 import kotlinx.coroutines.launch
 
 /**
  * ViewModel for the Details screen.
  */
-class TaskDetailViewModel(application: Application) : AndroidViewModel(application) {
-
-    // Note, for testing and architecture purposes, it's bad practice to construct the repository
-    // here. We'll show you how to fix this during the codelab
-    private val tasksRepository = DefaultTasksRepository.getRepository(application)
-
+class TaskDetailViewModel(private val tasksRepository: TasksRepository) : ViewModel() {
     private val _taskId = MutableLiveData<String>()
 
     private val _task = _taskId.switchMap { taskId ->
@@ -100,4 +104,9 @@ class TaskDetailViewModel(application: Application) : AndroidViewModel(applicati
     private fun showSnackbarMessage(@StringRes message: Int) {
         _snackbarText.value = Event(message)
     }
+}
+
+@Suppress("UNCHECKED_CAST")
+class TaskDetailViewModelFactory(private val tasksRepository: TasksRepository) : ViewModelProvider.NewInstanceFactory() {
+    override fun <T : ViewModel> create(modelClass: Class<T>) = (TaskDetailViewModel(tasksRepository) as T)
 }

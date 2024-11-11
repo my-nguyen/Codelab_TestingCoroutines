@@ -25,6 +25,9 @@ coreTesting = "2.2.0"
 coroutinesTest = "1.9.0"
 fragmentTesting = "1.8.5"
 core = "1.6.1"
+mockitoCore = "4.3.1"
+dexmakerMockito = "2.28.4"
+espressoContrib = "3.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +55,9 @@ core-testing = { group = "androidx.arch.core", name = "core-testing", version.re
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
 fragment-testing = { group = "androidx.fragment", name = "fragment-testing", version.ref = "fragmentTesting"}
 core = { group = "androidx.test", name = "core", version.ref = "core" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+dexmaker-mockito = { group = "com.linkedin.dexmaker", name = "dexmaker-mockito", version.ref = "dexmakerMockito" }
+espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
 
 [bundles]
 androidx-room = ["androidx-room-ktx", "androidx-room-paging", "androidx-room-runtime"]

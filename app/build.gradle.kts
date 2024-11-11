@@ -73,4 +73,7 @@ dependencies {
     androidTestImplementation(libs.coroutines.test)
     implementation(libs.fragment.testing)
     implementation(libs.core)
+    androidTestImplementation(libs.mockito.core)
+    androidTestImplementation(libs.dexmaker.mockito)
+    androidTestImplementation(libs.espresso.contrib)
 }

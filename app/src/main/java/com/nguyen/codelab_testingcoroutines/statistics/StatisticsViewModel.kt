@@ -1,21 +1,20 @@
 package com.nguyen.codelab_testingcoroutines.statistics
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
-import com.nguyen.codelab_testingcoroutines.TodoApplication
 import com.nguyen.codelab_testingcoroutines.data.Result
 import com.nguyen.codelab_testingcoroutines.data.Task
+import com.nguyen.codelab_testingcoroutines.data.source.TasksRepository
 import kotlinx.coroutines.launch
 
 /**
  * ViewModel for the statistics screen.
  */
-class StatisticsViewModel(application: Application) : AndroidViewModel(application) {
-    private val tasksRepository = (application as TodoApplication).taskRepository
+class StatisticsViewModel(private val tasksRepository: TasksRepository) : ViewModel() {
 
     private val tasks: LiveData<Result<List<Task>>> = tasksRepository.observeTasks()
     private val _dataLoading = MutableLiveData<Boolean>(false)
@@ -41,4 +40,9 @@ class StatisticsViewModel(application: Application) : AndroidViewModel(applicati
                 _dataLoading.value = false
             }
     }
+}
+
+@Suppress("UNCHECKED_CAST")
+class StatisticsViewModelFactory (private val tasksRepository: TasksRepository) : ViewModelProvider.NewInstanceFactory() {
+    override fun <T : ViewModel> create(modelClass: Class<T>) = (StatisticsViewModel(tasksRepository) as T)
 }

@@ -1,3 +1,15 @@
 Advanced Android in Kotlin 05.3:Testing Coroutines and Jetpack integrations
 
 https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-survey#0
+
+I give up at the end of Step 5: "Task: Testing Coroutine Timing"
+
+in Step 4 (Task: Coroutines and ViewModels), I couldn't get MainCoroutineRule to implement or
+inherit from TestCoroutineScope by TestCoroutineScope(dispatcher) because TestCoroutineScope is
+deprecated and I can't figure out what to replace it with. As a result, the test function
+getTasks_requestsAllTasksFromRemoteDataSource gives compiler error when switching from "runTest" to
+"mainCoroutineRule.runTest" in DefaultTasksRepositoryTest
+
+in Step 5, the test function loadTasks_loading in StatisticsViewModelTest also fails because of the
+same reason as above, and as a result, mainCoroutineRule.pauseDispatcher() and
+mainCoroutineRule.resumeDispatcher() give compiler error.
